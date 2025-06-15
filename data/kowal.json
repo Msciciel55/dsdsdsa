@@ -8,10 +8,10 @@
             "description": "Ciężki młot bojowy, wykuty w ogniu smoka. Idealny do kruszenia pancerzy i wrogów." 
         },
         { 
-            "name": "Miecz Długi", 
+            "name": "Statek", 
             "categoryPath": ["Broń", "Miecze", "Dwuręczne"], 
             "cardImage": "images/item_sword.webp", 
-            "modelFile": "models/items/sword.glb", 
+            "modelFile": "models/items/statek.glb", 
             "description": "Potężny miecz dwuręczny, wymagający siły i wprawy." 
         },
         { 
