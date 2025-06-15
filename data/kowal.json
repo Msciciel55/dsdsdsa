@@ -1,0 +1,53 @@
+{
+    "items": [
+        { 
+            "name": "Młot Bojowy", 
+            "categoryPath": ["Broń", "Broń Obuchowa","Dwuręczne"], 
+            "cardImage": "images/item_hammer.webp", 
+            "modelFile": "models/items/hammer.glb", 
+            "description": "Ciężki młot bojowy, wykuty w ogniu smoka. Idealny do kruszenia pancerzy i wrogów." 
+        },
+        { 
+            "name": "Miecz Długi", 
+            "categoryPath": ["Broń", "Miecze", "Dwuręczne"], 
+            "cardImage": "images/item_sword.webp", 
+            "modelFile": "models/items/sword.glb", 
+            "description": "Potężny miecz dwuręczny, wymagający siły i wprawy." 
+        },
+        { 
+            "name": "Krótki Miecz", 
+            "categoryPath": ["Broń", "Miecze", "Jednoręczne"], 
+            "cardImage": "images/item_sword.webp", 
+            "modelFile": "models/items/sword.glb", 
+            "description": "Niezawodny miecz ze stali damasceńskiej. Ostry i doskonale wyważony." 
+        },
+        { 
+            "name": "Topór Bojowy", 
+            "categoryPath": ["Broń", "Topory"], 
+            "cardImage": "images/item_axe.webp", 
+            "modelFile": "models/items/axe.glb", 
+            "description": "Jednoręczny topór, doskonały zarówno do walki, jak i do rąbania drewna." 
+        },
+        { 
+            "name": "Żelazny Hełm", 
+            "categoryPath": ["Zbroja", "Hełmy"], 
+            "cardImage": "images/panel_kowal.webp", 
+            "modelFile": "models/items/axe.glb", 
+            "description": "Solidny hełm chroniący przed ciosami." 
+        },
+        { 
+            "name": "Skórzane Rękawice", 
+            "categoryPath": ["Zbroja", "Rękawice"], 
+            "cardImage": "images/panel_kowal.webp", 
+            "modelFile": "models/items/axe.glb", 
+            "description": "Wytrzymałe rękawice zapewniające pewny chwyt." 
+        },
+        { 
+            "name": "Twojastara", 
+            "categoryPath": ["postacie", "rodzina"], 
+            "cardImage": "images/panel_kowal.webp", 
+            "modelFile": "models/items/axe.glb", 
+            "description": "Wytrzymałe rękawice zapewniające pewny chwyt." 
+        }
+    ]
+}

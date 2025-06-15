@@ -1,0 +1,370 @@
+/* --- START OF FILE style.css --- */
+
+/* --- PODSTAWOWE STYLE --- */
+body, html { 
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    font-family: 'MedievalSharp', cursive, sans-serif;
+    background-color: #111; 
+    color: #fff; 
+}
+
+#scene-container { 
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+}
+
+#info { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    padding: 5px 10px; 
+    background-color: rgba(0,0,0,0.5); 
+    color: white; 
+    border-radius: 5px; 
+    z-index: 100; 
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; 
+}
+
+#intro-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #000; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 200; 
+    transition: opacity 1s ease-out; 
+}
+
+#intro-logo { 
+    max-width: 80%; 
+    max-height: 80%; 
+    width: 300px; 
+}
+
+/* --- STYLE DLA MAGICZNEJ KSIĘGI --- */
+
+#catalog-view.magic-book-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: none; 
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 110;
+    transition: opacity 0.5s;
+    perspective: 2500px;
+}
+
+.book {
+    width: 90vw;
+    height: 80vh;
+    max-width: 1200px;
+    max-height: 700px;
+    display: flex;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s, filter 1s; /* Dodano filter do transition */
+}
+
+#catalog-view.magic-book-container.is-open .book {
+    transform: none;
+}
+
+.book-page {
+    width: 50%;
+    height: 100%;
+    background: #d7c4a4;
+    color: #4b3b2a;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 1px solid #d3c0a5;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-page { 
+    border-radius: 10px 0 0 10px; 
+    border-right: 3px solid #c8b59a; 
+}
+
+.right-page { 
+    border-radius: 0 10px 10px 0; 
+}
+
+.page-content { 
+    padding: 30px 40px; 
+    height: 100%; 
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.book-title, #items-title { 
+    text-align: center; 
+    font-size: 2em; 
+    margin: 0 0 20px 0; 
+    padding-bottom: 10px; 
+    border-bottom: 2px solid #c8b59a; 
+}
+
+.search-container { 
+    margin-bottom: 20px; 
+}
+
+#item-search-input { 
+    width: 100%; 
+    padding: 8px 10px; 
+    background-color: rgba(200, 181, 154, 0.3); 
+    border: 1px solid #c8b59a; 
+    border-radius: 5px; 
+    font-family: 'MedievalSharp', cursive, sans-serif; 
+    font-size: 1em; 
+    color: #4b3b2a; 
+    box-sizing: border-box; 
+}
+
+#item-search-input::placeholder { 
+    color: #8b6e51; 
+}
+
+#category-list { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    font-size: 1.2em; 
+    flex-grow: 1; 
+    overflow-y: auto; 
+}
+
+#category-list li { 
+    padding: 8px 15px; 
+    cursor: pointer; 
+    transition: color 0.3s; 
+    position: relative; 
+}
+
+#category-list li:hover { 
+    color: #ae4a25; 
+    transform: translateX(10px) scale(1.02);
+    text-shadow: 0 0 6px #ae4a25;
+    background-color: rgba(0,0,0,0.05);
+}
+#category-list li:hover, #category-list li.active { 
+    color: #9c3f1a; 
+}
+
+#category-list ul { 
+    list-style: none; 
+    padding-left: 20px; 
+    margin-top: 5px; 
+}
+
+#category-list li.has-children::before { 
+    content: '►'; 
+    position: absolute; 
+    left: 0; 
+    font-size: 0.8em; 
+    transition: transform 0.2s ease-in-out; 
+}
+
+#category-list li.has-children.expanded::before { 
+    transform: rotate(90deg); 
+}
+
+#item-grid-or-preview { 
+    flex-grow: 1; 
+    overflow-y: auto; 
+}
+
+.item-grid-book { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
+    gap: 20px; 
+    transition: opacity 0.3s; 
+}
+
+.item-card-book { 
+    text-align: center; 
+    cursor: pointer; 
+}
+
+.item-card-book img { 
+    width: 100%; 
+    height: 100px; 
+    object-fit: contain; 
+    filter: sepia(0.3) saturate(0.8); 
+    transition: transform 0.3s, filter 0.3s; 
+}
+
+.item-card-book:hover img { 
+    transform: scale(1.1); 
+    filter: none; 
+}
+
+.item-card-book h3 { 
+    margin: 5px 0 0; 
+    font-size: 1em; 
+}
+
+/* --- NOWY STYL DLA OBRAZKA W KSIĘDZE PODCZAS PODGLĄDU 3D --- */
+.book-preview-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: fadeInBookPreviewImage 0.8s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInBookPreviewImage {
+    to {
+        opacity: 1;
+    }
+}
+
+.book-preview-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    border: 3px solid #a8937a;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.1);
+}
+
+.close-button { 
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    background: none; 
+    border: none; 
+    color: #fff; 
+    font-size: 2em; 
+    cursor: pointer; 
+    z-index: 120; 
+    text-shadow: 0 0 5px black; 
+}
+
+/* --- STYLE PODGLĄDU PRZEDMIOTU (WERSJA POZA KSIĘGĄ) --- */
+
+/* Przejście dla całego kontenera książki */
+#catalog-view.preview-active .book {
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1), filter 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateZ(-800px) rotateY(-10deg) rotateX(15deg) scale(0.8);
+    filter: blur(5px) brightness(0.7);
+}
+
+/* Nowy kontener na scenę podglądu, pojawia się nad wszystkim */
+#fullscreen-preview-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 130; /* Nad przyciskiem zamknięcia */
+    perspective: 1500px; /* Perspektywa dla kręgu i tekstu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Domyślnie przezroczysty dla kliknięć */
+    opacity: 0; /* Pojawia się płynnie */
+    transition: opacity 0.5s;
+}
+
+#fullscreen-preview-scene.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Kontener dla SVG, teraz w perspektywie 3D */
+#magic-circle-container {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    transform-style: preserve-3d;
+    /* Początkowy stan przed animacją */
+    transform: translateY(150px) rotateX(75deg) scale(0.8);
+}
+
+#magic-circle-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Kontener na model 3D */
+#item-model-container-preview {
+    position: absolute;
+    width: 50%; /* Rozmiar względny do #fullscreen-preview-scene */
+    height: 80%;
+    max-width: 500px;
+    max-height: 500px;
+    z-index: 10;
+}
+
+/* Kontener na animowany opis */
+#item-description-container-animated {
+    position: absolute;
+    width: 350px;
+    max-width: 30%;
+    color: #ffdcb9;
+    font-size: 1.3em;
+    text-shadow: 0 0 8px #000, 0 0 15px #e07b3d;
+    z-index: 11;
+    /* Pozycjonowanie i transformacja będą ustawiane przez GSAP */
+}
+
+#item-description-container-animated h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 219, 185, 0.5);
+    padding-bottom: 10px;
+}
+
+.description-line {
+    display: block;
+    margin-bottom: 15px;
+    opacity: 0;
+}
+
+/* Przycisk powrotu teraz w scenie pełnoekranowej */
+#back-to-book-button {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #c8b59a;
+    color: #ffdcb9;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 20;
+    opacity: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#back-to-book-button:hover {
+    background-color: rgba(200, 181, 154, 0.5);
+    color: #fff;
+}
+/* --- END OF FILE style.css --- */

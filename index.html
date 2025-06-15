@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nawigator 3D - Magiczna Księga</title>
+    
+    <!-- Biblioteka GSAP do zaawansowanych animacji -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    
+    <!-- Główny arkusz stylów -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Import fantazyjnej czcionki z Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Nakładka startowa z logo -->
+    <div id="intro-overlay"></div>
+
+    <!-- Główny kontener sceny Three.js -->
+    <div id="scene-container"></div>
+
+    <!-- Małe okienko informacyjne w rogu -->
+    <div id="info"></div>
+    
+    <!-- Kontener widoku katalogu (Magiczna Księga) -->
+    <div id="catalog-view" class="magic-book-container">
+        <div class="book">
+            <!-- Lewa strona: Spis treści (Kategorie) -->
+            <div class="book-page left-page">
+                <div class="page-content">
+                    <h2 class="book-title">Spis Treści</h2>
+                    <div class="search-container">
+                        <input type="text" id="item-search-input" placeholder="Szukaj przedmiotu...">
+                    </div>
+                    <ul id="category-list">
+                        <!-- Kategorie będą generowane dynamicznie przez JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Prawa strona: Przedmioty -->
+            <div class="book-page right-page">
+                <div class="page-content">
+                    <h2 id="items-title">Wybierz kategorię</h2>
+                    <div id="item-grid-or-preview">
+                        <!-- Tutaj będzie siatka przedmiotów -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Główny przycisk zamknięcia księgi -->
+            <button id="back-to-main" class="close-button">×</button>
+        </div>
+    </div>
+
+    <!-- Skrypty -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="script.js"></script>
+
+    <!-- Nowy kontener na pełnoekranową scenę podglądu przedmiotu -->
+    <div id="fullscreen-preview-scene"></div>
+
+</body>
+</html>
